@@ -68,7 +68,7 @@ r16_edx = reg_info([regs16_str[2]], [regs16_expr[2]])
 
 
 selectr_str = ["ES", "CS", "SS", "DS", "FS", "GS"]
-selectr_expr = [ExprId(x, 16) for x in selectr_str]
+selectr_expr = [ExprId(x, 64) for x in selectr_str]
 segmreg = reg_info(selectr_str, selectr_expr)
 
 crregs32_str = ["CR%d" % i for i in xrange(8)]
@@ -86,7 +86,7 @@ fltregs32_expr = [ExprId(x, 64) for x in fltregs32_str]
 fltregs = reg_info(fltregs32_str, fltregs32_expr)
 
 r_st_all = reg_info(['ST'],
-                    [ExprId('ST', 64)])
+                    [ExprId('ST', 16)])
 
 r_cs_all = reg_info(['CS'],
                     [ExprId('CS', 16)])
@@ -97,9 +97,9 @@ r_es_all = reg_info(['ES'],
 r_ss_all = reg_info(['SS'],
                     [ExprId('SS', 16)])
 r_fs_all = reg_info(['FS'],
-                    [ExprId('FS', 16)])
+                    [ExprId('FS', 64)])
 r_gs_all = reg_info(['GS'],
-                    [ExprId('GS', 16)])
+                    [ExprId('GS', 64)])
 
 
 AL = regs08_expr[0]
@@ -311,12 +311,12 @@ vif = ExprId(reg_vif, size=1)
 vip = ExprId(reg_vip, size=1)
 i_d = ExprId(reg_id, size=1)
 
-ES = ExprId(reg_es, size=16)
-CS = ExprId(reg_cs, size=16)
-SS = ExprId(reg_ss, size=16)
-DS = ExprId(reg_ds, size=16)
-FS = ExprId(reg_fs, size=16)
-GS = ExprId(reg_gs, size=16)
+ES = ExprId(reg_es, size=64)
+CS = ExprId(reg_cs, size=64)
+SS = ExprId(reg_ss, size=64)
+DS = ExprId(reg_ds, size=64)
+FS = ExprId(reg_fs, size=64)
+GS = ExprId(reg_gs, size=64)
 
 tsc1 = ExprId(reg_tsc1, size=32)
 tsc2 = ExprId(reg_tsc2, size=32)

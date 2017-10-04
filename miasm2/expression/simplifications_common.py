@@ -29,6 +29,8 @@ def simp_cst_propagation(e_s, expr):
             int1 = args.pop()
             if op_name == '+':
                 out = int1.arg + int2.arg
+            if op_name == 'segm':
+                out = int1.arg + int2.arg
             elif op_name == '*':
                 out = int1.arg * int2.arg
             elif op_name == '**':
@@ -125,7 +127,7 @@ def simp_cst_propagation(e_s, expr):
 
     # op A => A
     if op_name in ['+', '*', '^', '&', '|', '>>', '<<',
-              'a>>', '<<<', '>>>', 'idiv', 'imod', 'umod', 'udiv'] and len(args) == 1:
+              'a>>', '<<<', '>>>', 'idiv', 'imod', 'umod', 'udiv', 'segm'] and len(args) == 1:
         return args[0]
 
     # A-B => A + (-B)
